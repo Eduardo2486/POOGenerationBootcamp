@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript POO</title>
+</head>
+<body>
+  <script>
+
+    class Pokemon{
+        name = "";
+        type = "";
+        evloutions = [];
+
+        constructor(name,type,evolutions){ 
+            this.name = name;
+            this.type = type;
+            this.evolutions = evolutions;
+        }
+        attack(){
+            return `${this.name}, está atacando`;
+        }
+        evolve (evolution = 0){
+            const EVOLVE = this.evolutions[evolution] || "";
+            let message = 'No puedo evolucionar';
+
+            if(EVOLVE){
+                message = `${this.name} esta evolucionando a ${EVOLVE}`;
+                this.name = EVOLVE; 
+            }
+            return message;
+        }
+
+    }
+
+    const Charmander = new Pokemon ('Charmander', 'Fuego',['Charmeleon','Charizard']);
+
+    console.log(Charmander.attack());
+    console.log(Charmander.evolutions);
+  </script>
+</body>
+</html>
